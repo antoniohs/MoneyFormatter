@@ -15,12 +15,12 @@ In the "require" section of your composer.json file:
 
 Always up to date (bleeding edge, API *not* guaranteed stable)
 ```javascript
-"antonienko/MoneyFormatter": "dev-master"
+"antonienko/money-formatter": "dev-master"
 ```
 
 Specific minor version, API stability
 ```javascript
-"antonienko/positive-modulus": "1.0.*"
+"antonienko/money-formatter": "1.0.*"
 ```
 
 ##Sample Usage

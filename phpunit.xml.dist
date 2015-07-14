@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="./tests/antonienko/tests/bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false">
+    <testsuites>
+        <testsuite name="PHP Template Previewer">
+            <directory suffix="Test.php">./tests/antonienko/tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

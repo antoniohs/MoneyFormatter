@@ -1,0 +1,29 @@
+{
+  "name": "antonienko/MoneyFormatter",
+  "type": "library",
+  "description": "Formatter for mathiasverraes' money library using alcohol's iso4217 standard implementation",
+  "keywords": ["money", "value object", "formatter", "currency"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Antonio Manuel Hernández Sánchez"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "antonienko\\MoneyFormatter": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-0": { "antonienko\\tests\\": "tests/" }
+  },
+  "require": {
+    "php": ">=5.3.3",
+    "ext-intl": "1.1.*",
+    "mathiasverraes/money" : "1.2.*",
+    "alcohol/iso4217": "~2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  }
+}

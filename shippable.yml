@@ -1,0 +1,24 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+
+env:
+  - secure: u3FAZlLd4N2fvPUhUyPYbpTowfYukj7mjbtCIVy0pfksgPmwFgW8POMCmKby4LWO95oOszn/bgWIwG3DR4hOBuBsqCnraq8ibG38lT6kjtwbjFbQsfLDE9mp2WI/ze/I/uoWZgbFjHq1in8oFxgv3jpOCN9Vxw9GXa8sWZhZWfeIvx2zcRs9pzjPJ7Ei+C4cGYs2i920B8umk/aiu8JR2Tw3pfH4+FVVftToUB37FYulVqLFCmKxrHJcxh0z5z3V/F/8SS2yjsWIQaeWugYCYPkV7yVKw27ONtNgdwwT4Cc7Bt50pc0HbylyUePaBX+pFxDNUhh+54r8zIuKndGxmw==
+
+before_install:
+- composer selfupdate
+- composer config -g github-oauth.github.com $MY_GITHUB_TOKEN
+
+before_script:
+  - mkdir -p shippable/codecoverage
+  - mkdir -p shippable/testresults
+  - composer install --prefer-source --no-interaction
+
+script:
+ - phpunit --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage --configuration phpunit.xml.dist
+
+cache: true

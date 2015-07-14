@@ -1,5 +1,5 @@
 {
-  "name": "antonienko/MoneyFormatter",
+  "name": "antonienko/money-formatter",
   "type": "library",
   "description": "Formatter for mathiasverraes' money library using alcohol's iso4217 standard implementation",
   "keywords": ["money", "value object", "formatter", "currency"],

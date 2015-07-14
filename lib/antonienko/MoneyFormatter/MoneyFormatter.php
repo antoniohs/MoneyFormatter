@@ -15,7 +15,8 @@ class MoneyFormatter
 
     public function getAmountInBaseUnits(Money $money)
     {
-        $decimals = $this->iso4217->getByAlpha3($money->getCurrency()->getName())['exp'];
+        $iso = $this->iso4217->getByAlpha3($money->getCurrency()->getName());
+        $decimals = $iso['exp'];
         $dividend = pow(10,$decimals);
         return $money->getAmount()/$dividend;
     }

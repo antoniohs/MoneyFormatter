@@ -53,4 +53,29 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * method getSymbol
+     * when calledWithAProperCurrency
+     * should returnCurrencySymbol
+     * @dataProvider getLocaleCurrencyAndExpectedSymbol
+     */
+    public function test_getSymbol_calledWithAProperCurrency_returnCurrencySymbol($locale, $currency, $expected)
+    {
+        $sut = new MoneyFormatter();
+        $actual = $sut->getSymbol($locale, new Money(300005, new Currency($currency)));
+        $this->assertEquals($expected, $actual, 'Test failed for locale '.$locale.' and currency '.$currency);
+    }
+
+    public function getLocaleCurrencyAndExpectedSymbol()
+    {
+        return array(
+            array('de_DE', 'EUR', '€'),
+            array('en_US', 'EUR', '€'),
+            array('fr_FR', 'EUR', '€'),
+            array('de_DE', 'USD', '$'),
+            array('en_US', 'USD', '$'),
+            array('fr_FR', 'USD', '$'),
+        );
+    }
+
 }

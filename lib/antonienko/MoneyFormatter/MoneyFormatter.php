@@ -2,6 +2,7 @@
 namespace antonienko\MoneyFormatter;
 
 use Alcohol\ISO4217;
+use Money\Currency;
 use Money\Money;
 
 class MoneyFormatter
@@ -31,5 +32,10 @@ class MoneyFormatter
     {
         $string = $this->toStringByLocale($locale, $money);
         return preg_replace('/[a-z0-9., ]*/i', '', $string);
+    }
+
+    public function getSymbolFromCurrency($locale, Currency $currency)
+    {
+        return $this->getSymbol($locale, new Money(1, $currency));
     }
 }

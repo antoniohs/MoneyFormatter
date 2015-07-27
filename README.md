@@ -38,4 +38,4 @@ $french_formatted = $mf->toStringByLocale('fr_FR', $money) //$french_formatted w
 ```
 
 ##License Information
-Lincensed under __The MIT License (MIT)__. See the LICENSE file for more details.
+Licensed under __The MIT License (MIT)__. See the LICENSE file for more details.

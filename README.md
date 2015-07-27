@@ -30,7 +30,7 @@ use antonienko\MoneyFormatter\MoneyFormatter;
 use Money\Currency;
 use Money\Money;
 
-$money = new Money(300005, new Currency('EUR')
+$money = new Money(300005, new Currency('EUR'));
 
 $mf = new MoneyFormatter();
 $amount = $mf->getAmountInBaseUnits($money); //$amount will be (float)3000.05
@@ -38,4 +38,4 @@ $french_formatted = $mf->toStringByLocale('fr_FR', $money) //$french_formatted w
 ```
 
 ##License Information
-Lincensed under __The MIT License (MIT)__. See the LICENSE file for more details.
+Licensed under __The MIT License (MIT)__. See the LICENSE file for more details.

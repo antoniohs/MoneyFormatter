@@ -54,12 +54,12 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * method getPositionSymbol
+     * method getSymbolPosition
      * when called
-     * should returnPositionSymbolWithZeroOrOneValues
+     * should returnSymbolPositionWithZeroOrOneValues
      * @dataProvider getSymbolPositionFromLocale
      */
-    public function test_getPositionSymbol_called_returnPositionSymbolWithZeroOrOneValues($locale, $currency , $expected)
+    public function test_getSymbolPosition_called_returnPositionSymbolWithZeroOrOneValues($locale, $currency , $expected)
     {
         $sut = new MoneyFormatter();
         $actual = $sut->getPositionSymbol($locale, new Currency($currency));

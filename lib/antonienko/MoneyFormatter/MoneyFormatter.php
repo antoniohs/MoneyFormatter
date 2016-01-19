@@ -39,7 +39,7 @@ class MoneyFormatter
         return $this->getSymbol($locale, new Money(1, $currency));
     }
 
-    public function getPositionSymbol($locale, Currency $currency)
+    public function getSymbolPosition($locale, Currency $currency)
     {
         $money = new Money(1, $currency);
         $number_formatter = $this->toStringByLocale($locale, $money);

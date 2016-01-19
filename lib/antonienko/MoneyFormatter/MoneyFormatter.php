@@ -31,7 +31,7 @@ class MoneyFormatter
     public function getSymbol($locale, Money $money)
     {
         $string = $this->toStringByLocale($locale, $money);
-        return preg_replace('/[a-z0-9., ]*/i', '', $string);
+        return preg_replace('/[a-z0-9., ]*/iu', '', $string);
     }
 
     public function getSymbolFromCurrency($locale, Currency $currency)

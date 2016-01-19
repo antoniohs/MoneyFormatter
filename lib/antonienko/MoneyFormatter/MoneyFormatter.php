@@ -38,4 +38,21 @@ class MoneyFormatter
     {
         return $this->getSymbol($locale, new Money(1, $currency));
     }
+
+    public function getPositionSymbol($locale, Currency $currency)
+    {
+        $money = new Money(1, $currency);
+        $number_formatter = $this->toStringByLocale($locale, $money);
+        $symbol = $this->getSymbol($locale,$money);
+
+        if(strpos($number_formatter,$symbol) === 0) {
+            return 0;
+        }
+        if(strpos($number_formatter,$symbol) === iconv_strlen($number_formatter)) {
+            return 1;
+        }
+
+        throw new \Exception('Symbol position not found');
+
+    }
 }

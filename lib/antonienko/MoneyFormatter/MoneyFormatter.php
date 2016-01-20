@@ -48,9 +48,8 @@ class MoneyFormatter
         if(strpos($number_formatter,$symbol) === 0) {
             return 0;
         }
-        var_dump(mb_internal_encoding());
-        var_dump(strpos($number_formatter,$symbol), mb_strlen($number_formatter,'UTF-8'));
-        if(strpos($number_formatter,$symbol) === mb_strlen($number_formatter)) {
+
+        if(strpos($number_formatter,$symbol) === mb_strlen($number_formatter, 'UTF-8')) {
             return 1;
         }
         throw new \Exception('Symbol position not found');

@@ -47,9 +47,9 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
     public function getSymbolPositionFromLocale()
     {
         return array(
-            array('de_DE', 'EUR', 1),
-            array('en_US', 'EUR', 0),
-            array('fr_FR', 'EUR', 1),
+            array('de_DE', 'EUR', MoneyFormatter::SYMBOL_POSITION_RIGHT),
+            array('en_US', 'EUR', MoneyFormatter::SYMBOL_POSITION_LEFT),
+            array('fr_FR', 'EUR', MoneyFormatter::SYMBOL_POSITION_RIGHT),
         );
     }
 

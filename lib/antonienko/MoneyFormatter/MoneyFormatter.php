@@ -9,6 +9,10 @@ class MoneyFormatter
 {
     protected $iso4217;
 
+    const SYMBOL_POSITION_LEFT = 0;
+
+    const SYMBOL_POSITION_RIGHT = 1;
+
     public function __construct()
     {
         $this->iso4217 = new ISO4217();
@@ -46,11 +50,11 @@ class MoneyFormatter
         $symbol = $this->getSymbol($locale,$money);
 
         if(strpos($number_formatter,$symbol) === 0) {
-            return 0;
+            return self::SYMBOL_POSITION_LEFT;
         }
 
         if(strpos($number_formatter,$symbol) === mb_strlen($number_formatter, 'UTF-8')) {
-            return 1;
+            return self::SYMBOL_POSITION_RIGHT;
         }
         throw new \Exception('Symbol position not found');
 

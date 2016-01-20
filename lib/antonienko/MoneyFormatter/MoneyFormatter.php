@@ -48,6 +48,8 @@ class MoneyFormatter
         if(strpos($number_formatter,$symbol) === 0) {
             return 0;
         }
+        var_dump(strpos($number_formatter,$symbol), mb_strlen($number_formatter));
+        var_dump(mb_strpos($number_formatter,$symbol), mb_strlen($number_formatter));
         if(strpos($number_formatter,$symbol) === mb_strlen($number_formatter)) {
             return 1;
         }

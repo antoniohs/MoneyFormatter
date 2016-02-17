@@ -20,7 +20,7 @@
   "require": {
     "php": ">=5.3.3",
     "ext-intl": "1.1.*",
-    "mathiasverraes/money" : "1.2.*",
+    "mathiasverraes/money" : "1.*",
     "alcohol/iso4217": "~2.0"
   },
   "require-dev": {

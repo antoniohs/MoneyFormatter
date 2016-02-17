@@ -18,7 +18,7 @@
     "psr-0": { "antonienko\\tests\\": "tests/" }
   },
   "require": {
-    "php": ">=5.3.3",
+    "php": ">=5.4",
     "ext-intl": "1.1.*",
     "mathiasverraes/money" : "1.*",
     "alcohol/iso4217": "~2.0"

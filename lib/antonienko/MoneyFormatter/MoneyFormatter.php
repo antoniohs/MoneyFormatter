@@ -32,15 +32,22 @@ class MoneyFormatter
         return $number_formatter->formatCurrency($this->getAmountInBaseUnits($money), $money->getCurrency()->getName());
     }
 
-    public function getSymbol($locale, Money $money)
+    public function getSymbol($locale, Money $money, $justSymbol = true)
     {
         $string = $this->toStringByLocale($locale, $money);
-        return preg_replace('/[a-z0-9., ]*/iu', '', $string);
+        $symbol = preg_replace('/[0-9., ]*/iu', '', $string);
+        if ($justSymbol) {
+            $symbol_tmp = preg_replace('/[a-z]+/iu','',$symbol);
+            if ('' != $symbol_tmp) {
+                $symbol = $symbol_tmp;
+            }
+        }
+        return $symbol;
     }
 
-    public function getSymbolFromCurrency($locale, Currency $currency)
+    public function getSymbolFromCurrency($locale, Currency $currency, $justSymbol = true)
     {
-        return $this->getSymbol($locale, new Money(1, $currency));
+        return $this->getSymbol($locale, new Money(1, $currency), $justSymbol);
     }
 
     public function getSymbolPosition($locale, Currency $currency)

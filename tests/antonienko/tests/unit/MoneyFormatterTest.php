@@ -98,7 +98,40 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
             array('de_DE', 'USD', '$'),
             array('en_US', 'USD', '$'),
             array('fr_FR', 'USD', '$'),
+            array('en_CA', 'CAD', '$'),
+            array('en_CA', 'USD', '$'),
+            array('de_DE', 'CHF', 'CHF'),
         );
     }
+
+    /**
+     * method getSymbol
+     * when calledWithAProperCurrencyButJustSymbolFalse
+     * should returnFullCurrencySymbol
+     * @dataProvider getLocaleCurrencyAndExpectedFullSymbol
+     */
+    public function test_getSymbol_calledWithAProperCurrencyButJustSymbolFalse_returnFullCurrencySymbol($locale, $currency, $expected)
+    {
+        $sut = new MoneyFormatter();
+        $actual = $sut->getSymbol($locale, new Money(300005, new Currency($currency)), false);
+        $this->assertEquals($expected, $actual, 'Test failed for locale '.$locale.' and currency '.$currency);
+    }
+
+    public function getLocaleCurrencyAndExpectedFullSymbol()
+    {
+        return array(
+            array('de_DE', 'EUR', '€'),
+            array('en_US', 'EUR', '€'),
+            array('fr_FR', 'EUR', '€'),
+            array('de_DE', 'USD', '$'),
+            array('en_US', 'USD', '$'),
+            array('fr_FR', 'USD', '$US'),
+            array('en_CA', 'CAD', '$'),
+            array('en_CA', 'USD', 'US$'),
+            array('en_US', 'CAD', 'CA$'),
+            array('de_DE', 'CHF', 'CHF'),
+        );
+    }
+
 
 }

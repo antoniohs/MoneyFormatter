@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2612166b16be2567b394086a8e35c218",
-    "content-hash": "5567ce6d29a527392967fd7c8e2bb2b4",
+    "hash": "da0dac67427a9f25929694cc40aea8db",
+    "content-hash": "f74caed93d10714ff44b0194d4918944",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -1092,7 +1092,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.4",
-        "ext-intl": "1.1.*"
+        "ext-intl": "1.1.*",
+        "ext-mbstring": "*"
     },
     "platform-dev": []
 }

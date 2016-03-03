@@ -20,7 +20,7 @@ class MoneyFormatter
 
     public function getAmountInBaseUnits(Money $money)
     {
-        $iso = $this->iso4217->getByAlpha3($money->getCurrency()->getName());
+        $iso = $this->iso4217->getByAlpha3($money->getCurrency()->getCode());
         $decimals = $iso['exp'];
         $dividend = pow(10,$decimals);
         return $money->getAmount()/$dividend;
@@ -29,7 +29,7 @@ class MoneyFormatter
     public function toStringByLocale($locale, Money $money)
     {
         $number_formatter = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
-        return $number_formatter->formatCurrency($this->getAmountInBaseUnits($money), $money->getCurrency()->getName());
+        return $number_formatter->formatCurrency($this->getAmountInBaseUnits($money), $money->getCurrency()->getCode());
     }
 
     public function getSymbol($locale, Money $money, $justSymbol = true)

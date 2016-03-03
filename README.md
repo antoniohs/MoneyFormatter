@@ -1,6 +1,9 @@
 Money Formatter 
 ===============
 [![Build Status](https://api.shippable.com/projects/55a52332edd7f2c0526c925c/badge?branchName=master)](https://app.shippable.com/projects/55a52332edd7f2c0526c925c/builds/latest)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/badges/build.png?b=master)](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/build-status/master)
 
 Class to convert [Mathias Verraes Money value objects](https://github.com/mathiasverraes/money) to the base unit representation
 of the given currency (float) or to a string representation given a locale, using [php's intl extension](http://php.net/manual/en/numberformatter.formatcurrency.php).

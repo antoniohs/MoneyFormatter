@@ -5,7 +5,7 @@ Money Formatter
 [![Code Coverage](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/badges/build.png?b=master)](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/build-status/master)
 
-Class to convert [Mathias Verraes Money value objects](https://github.com/mathiasverraes/money) to the base unit representation
+Class to convert [Moneyphp/money objects](https://github.com/moneyphp/money) to the base unit representation
 of the given currency (float) or to a string representation given a locale, using [php's intl extension](http://php.net/manual/en/numberformatter.formatcurrency.php).
 
 To do so it leverages the info provided by the [iso4217 library from Alcohol](https://github.com/alcohol/iso4217) in order
@@ -24,7 +24,7 @@ Always up to date (bleeding edge, API *not* guaranteed stable)
 
 Specific minor version, API stability
 ```javascript
-"antonienko/money-formatter": "1.0.*"
+"antonienko/money-formatter": "2.0.*"
 ```
 
 ##Sample Usage
@@ -36,8 +36,8 @@ use Money\Money;
 $money = new Money(300005, new Currency('EUR'));
 
 $mf = new MoneyFormatter();
-$amount = $mf->getAmountInBaseUnits($money); //$amount will be (float)3000.05
-$french_formatted = $mf->toStringByLocale('fr_FR', $money) //$french_formatted will be '3 000,05 €'
+$amount = $mf->toFloat($money); //$amount will be (float)3000.05
+$french_formatted = $mf->toString('fr_FR', $money) //$french_formatted will be '3 000,05 €'
 ```
 
 ##License Information

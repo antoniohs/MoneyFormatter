@@ -1,21 +1,23 @@
 {
   "name": "antonienko/money-formatter",
   "type": "library",
-  "description": "Formatter for mathiasverraes' money library using alcohol's iso4217 standard implementation",
+  "description": "Formatter for moneyphp/money library using alcohol/iso4217 for obtaining the number of decimal digits in each currency",
   "keywords": ["money", "value object", "formatter", "currency"],
+  "homepage": "http://www.antoniohs.com/2016/03/03/antonienkomoneyformatter-2-0/",
   "license": "MIT",
   "authors": [
     {
-      "name": "Antonio Manuel Hernández Sánchez"
+      "name": "Antonio Manuel Hernández Sánchez",
+      "homepage": "http://antoniohs.com"
     }
   ],
   "autoload": {
-    "psr-0": {
-      "antonienko\\MoneyFormatter": "lib/"
+    "psr-4": {
+      "antonienko\\MoneyFormatter\\": "lib/"
     }
   },
   "autoload-dev": {
-    "psr-0": { "antonienko\\tests\\": "tests/" }
+    "psr-4": { "antonienko\\tests\\MoneyFormatter\\": "tests/" }
   },
   "require": {
     "php": ">=5.4",

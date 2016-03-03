@@ -1,5 +1,5 @@
 <?php
-namespace antonienko\MoneyFormatter\tests;
+namespace antonienko\tests\MoneyFormatter;
 
 use antonienko\MoneyFormatter\MoneyFormatter;
 use Money\Currency;

@@ -7,16 +7,16 @@ use Money\Money;
 class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * method getAmountInBaseUnits
+     * method toFloat
      * when calledWithProperMoneyObjects
      * should returnProperResult
      * @dataProvider getAmountCurrencyAndExpectedResult
      */
-    public function test_getAmountInBaseUnits_calledWithProperMoneyObjects_returnProperResult($amount, $currency, $expected)
+    public function test_toFloat_calledWithProperMoneyObjects_returnProperResult($amount, $currency, $expected)
     {
-        $sut = new MoneyFormatter();
-        $actual = $sut->getAmountInBaseUnits(new Money($amount, new Currency($currency)));
-        $this->assertEquals($expected, $actual);
+        $sut = new MoneyFormatter('es_ES');
+        $actual = $sut->toFloat(new Money($amount, new Currency($currency)));
+        self::assertEquals($expected, $actual);
     }
 
     public function getAmountCurrencyAndExpectedResult()
@@ -32,39 +32,16 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * method getSymbolPosition
-     * when called
-     * should returnSymbolPositionWithZeroOrOneValues
-     * @dataProvider getSymbolPositionFromLocale
-     */
-    public function test_getSymbolPosition_called_returnPositionSymbolWithZeroOrOneValues($locale, $currency , $expected)
-    {
-        $sut = new MoneyFormatter();
-        $actual = $sut->getSymbolPosition($locale, new Currency($currency));
-        $this->assertEquals($expected,$actual);
-    }
-
-    public function getSymbolPositionFromLocale()
-    {
-        return array(
-            array('de_DE', 'EUR', MoneyFormatter::SYMBOL_POSITION_RIGHT),
-            array('en_US', 'EUR', MoneyFormatter::SYMBOL_POSITION_LEFT),
-            array('fr_FR', 'EUR', MoneyFormatter::SYMBOL_POSITION_RIGHT),
-        );
-    }
-
-
-    /**
-     * method toStringByLocale
+     * method toString
      * when calledWithProperLocaleAndMoneyObjects
      * should returnLocalizedAmountAndCurrencyString
      * @dataProvider getLocaleAmountCurrencyAndExpectedString
      */
-    public function test_toStringByLocale_calledWithProperLocaleAndMoneyObjects_returnLocalizedAmountAndCurrencyString($locale, $amount, $currency, $expected)
+    public function test_toString_calledWithProperLocaleAndMoneyObjects_returnLocalizedAmountAndCurrencyString($locale, $amount, $currency, $expected)
     {
-        $sut = new MoneyFormatter();
-        $actual = $sut->toStringByLocale($locale, new Money($amount, new Currency($currency)));
-        $this->assertEquals($expected, $actual, 'Test failed for locale: '.$locale);
+        $sut = new MoneyFormatter($locale);
+        $actual = $sut->toString(new Money($amount, new Currency($currency)));
+        self::assertEquals($expected, $actual, 'Test failed for locale: '.$locale);
     }
 
     public function getLocaleAmountCurrencyAndExpectedString()
@@ -77,16 +54,16 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * method getSymbol
+     * method toSymbolFromCurrency
      * when calledWithAProperCurrency
      * should returnCurrencySymbol
      * @dataProvider getLocaleCurrencyAndExpectedSymbol
      */
-    public function test_getSymbol_calledWithAProperCurrency_returnCurrencySymbol($locale, $currency, $expected)
+    public function test_toSymbol_calledWithAProperCurrency_returnCurrencySymbol($locale, $currency, $expected)
     {
-        $sut = new MoneyFormatter();
-        $actual = $sut->getSymbol($locale, new Money(300005, new Currency($currency)));
-        $this->assertEquals($expected, $actual, 'Test failed for locale '.$locale.' and currency '.$currency);
+        $sut = new MoneyFormatter($locale);
+        $actual = $sut->toSymbolFromCurrency(new Currency($currency));
+        self::assertEquals($expected, $actual, 'Test failed for locale '.$locale.' and currency '.$currency);
     }
 
     public function getLocaleCurrencyAndExpectedSymbol()
@@ -105,16 +82,16 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * method getSymbol
+     * method toSymbol
      * when calledWithAProperCurrencyButJustSymbolFalse
      * should returnFullCurrencySymbol
      * @dataProvider getLocaleCurrencyAndExpectedFullSymbol
      */
-    public function test_getSymbol_calledWithAProperCurrencyButJustSymbolFalse_returnFullCurrencySymbol($locale, $currency, $expected)
+    public function test_toSymbol_calledWithAProperCurrencyButJustSymbolFalse_returnFullCurrencySymbol($locale, $currency, $expected)
     {
-        $sut = new MoneyFormatter();
-        $actual = $sut->getSymbol($locale, new Money(300005, new Currency($currency)), false);
-        $this->assertEquals($expected, $actual, 'Test failed for locale '.$locale.' and currency '.$currency);
+        $sut = new MoneyFormatter($locale);
+        $actual = $sut->toSymbol(new Money(300005, new Currency($currency)), false);
+        self::assertEquals($expected, $actual, 'Test failed for locale '.$locale.' and currency '.$currency);
     }
 
     public function getLocaleCurrencyAndExpectedFullSymbol()
@@ -133,5 +110,27 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+
+    /**
+     * method getSymbolPosition
+     * when called
+     * should returnSymbolPositionWithZeroOrOneValues
+     * @dataProvider getSymbolPositionFromLocale
+     */
+    public function test_getSymbolPosition_called_returnPositionSymbolWithZeroOrOneValues($locale, $currency , $expected)
+    {
+        $sut = new MoneyFormatter($locale);
+        $actual = $sut->getSymbolPosition(new Currency($currency));
+        self::assertEquals($expected,$actual);
+    }
+
+    public function getSymbolPositionFromLocale()
+    {
+        return array(
+            array('de_DE', 'EUR', MoneyFormatter::SYMBOL_POSITION_RIGHT),
+            array('en_US', 'EUR', MoneyFormatter::SYMBOL_POSITION_LEFT),
+            array('fr_FR', 'EUR', MoneyFormatter::SYMBOL_POSITION_RIGHT),
+        );
+    }
 
 }

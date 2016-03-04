@@ -27,17 +27,31 @@ Specific minor version, API stability
 "antonienko/money-formatter": "2.0.*"
 ```
 
+## Features
+* Convert a ___Money Object to float value___, depending on the number of decimal places used by the currency.
+* Convert a ___Money Object to string___, formatted using the provided locale.
+* Get the currency symbol of a Money Object, either just the symbol or the full currency symbol (The "just the symbol" option for Canadian Dollar would be '$', but if you are in the USA you would need the "full symbol" option "CA$")
+* Get the symbol position for a given locale (right or left position)
+
 ##Sample Usage
 ```php
 use antonienko\MoneyFormatter\MoneyFormatter;
 use Money\Currency;
 use Money\Money;
 
-$money = new Money(300005, new Currency('EUR'));
+$some_euros   = new Money(300005, new Currency('EUR'));
+$some_dollars = new Money(300005, new Currency('USD'));
+$mf = new MoneyFormatter('fr_FR_);
 
-$mf = new MoneyFormatter();
-$amount = $mf->toFloat($money); //$amount will be (float)3000.05
-$french_formatted = $mf->toString('fr_FR', $money) //$french_formatted will be '3 000,05 €'
+$amount = $mf->toFloat($some_euros); //$amount will be (float)3000.05
+
+$french_formatted = $mf->toString($some_euros); //$french_formatted will be '3 000,05 €'
+
+$just_symbol = $mf->toSymbol($some_dollars); //$just_symbol would be '$'
+
+$full_symbol = $mf->toSymbol($some_dollars, false); //$full_symbol would be '$US'
+
+$position = $mf->getSymbolPosition($some_euros); //position would be MoneyFormatter::SYMBOL_POSITION_RIGHT
 ```
 
 ##License Information

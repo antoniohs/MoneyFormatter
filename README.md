@@ -30,8 +30,8 @@ Specific minor version, API stability
 ## Features
 * Convert a ___Money Object to float value___, depending on the number of decimal places used by the currency.
 * Convert a ___Money Object to string___, formatted using the provided locale.
-* Get the currency symbol of a Money Object, either just the symbol or the full currency symbol (The "just the symbol" option for Canadian Dollar would be '$', but if you are in the USA you would need the "full symbol" option "CA$")
-* Get the symbol position for a given locale (right or left position)
+* Get the ___currency symbol___ of a Money Object, either just the symbol or the full currency symbol (The "just the symbol" option for Canadian Dollar would be '$', but if you are in the USA you would need the "full symbol" option "CA$")
+* Get the ___symbol position___ for a given locale (right or left position)
 
 ##Sample Usage
 ```php

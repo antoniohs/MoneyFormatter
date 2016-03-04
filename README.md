@@ -41,7 +41,7 @@ use Money\Money;
 
 $some_euros   = new Money(300005, new Currency('EUR'));
 $some_dollars = new Money(300005, new Currency('USD'));
-$mf = new MoneyFormatter('fr_FR_);
+$mf = new MoneyFormatter('fr_FR');
 
 $amount = $mf->toFloat($some_euros); //$amount will be (float)3000.05
 

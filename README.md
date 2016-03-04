@@ -1,6 +1,6 @@
 Money Formatter 
 ===============
-[![Shippable](https://img.shields.io/shippable/55a52332edd7f2c0526c925c.svg)]()
+[![Run Status](https://api.shippable.com/projects/55a52332edd7f2c0526c925c/badge?branch=master)](https://app.shippable.com/projects/55a52332edd7f2c0526c925c)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/badges/build.png?b=master)](https://scrutinizer-ci.com/g/antonienko/MoneyFormatter/build-status/master)
